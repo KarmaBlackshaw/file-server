@@ -7,6 +7,11 @@ const mount = require('koa-mount')
 const colors = require('colors')
 
 const path = require('path')
+const fs = require('fs')
+
+if (!fs.existsSync('./public')) {
+  fs.mkdirSync('./public')
+}
 
 app.use(mount('/', serve('./public')));
 
